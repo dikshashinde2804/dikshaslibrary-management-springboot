@@ -24,6 +24,8 @@ public class BookService {
 		
 		return bookRepository.findAll();
 	}
+    
+    
 	public void deleteBook(int id) {
 		
 		Book existingBook = bookRepository.findById(id).orElse(null);
@@ -34,6 +36,7 @@ public class BookService {
 	public Book findBook(int id) {
 		return bookRepository.findById(id).orElse(null);
 	}
+	
 	public Book updateBook(Book book) {
 		Book existingBook = bookRepository.findById(book.getBookId()).orElse(null);
 		if(existingBook!=null) {

@@ -14,80 +14,48 @@
       </div>
       <div class="col-10">
         <div id="" class="container mt-4">
-          <div>
-            List Category Page
-          </div>
-
-
-          <table class="table">
-            <thead>
-
-              <tr th:if="${categories.empty}">
-                <td colspan="2"> No books Available </td>
-              </tr>
-              <tr>
-                <th scope="col">Category ID</th>
-                <th scope="col">Category Name</th>
-                <th scope="col">Category Description</th>
-                <th>Action</th>
-              </tr>
-
-              <tr th:each="category : ${categories}">
-                <td><span th:text="${category.categoryId}"> Id </span></td>
-                <td><span th:text="${category.categoryName}"> Category Name </span></td>
-                <td><span th:text="${category.categoryDescription}"> Category Description </span></td>
-                <td><a th:href="@{/category/delete/{id}(id=${category.categoryId})}"><span style="color: red;">
-                      <i class="fas fa-trash"></i></span></a> &nbsp; <a
-                    th:href="@{/category/update/{id}(id=${category.categoryId})}">
-                    <span style="color: green;"> <i class="fas fa-edit"></i> </span></a></td>
-              </tr>
-            </thead>
-            <tbody>
-
-
-            </tbody>
-
-          </table>
-
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+              <h6 class="m-0 font-weight-bold text-primary"> Book Categories</h6>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Category Name</th>
-                                <th>Category Description</th>
-                                <th>Action</th>                              
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                              <th>ID</th>
-                              <th>Category Name</th>
-                              <th>Category Description</th>
-                              <th>Action</th>                                 
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            <tr th:each="category : ${categories}">
-                                <td><span th:text="${category.categoryId}"> 1 </span></td>
-                                <td><span th:text="${category.categoryName}"> Category Name </span></td>
-                                <td><span th:text="${category.categoryDescription}"> Category Description </span></td>
-                                <td><a th:href="@{/category/delete/{id}(id=${category.categoryId})}"><span style="color: red;">
-                                  <i class="fas fa-trash"></i></span></a> &nbsp; <a
-                                th:href="@{/category/update/{id}(id=${category.categoryId})}">
-                                <span style="color: green;"> <i class="fas fa-edit"></i> </span></a></td>                                
-                            </tr>
-							
-                        </tbody>
-                    </table>
-                </div>
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Category Name</th>
+                      <th>Category Description</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>ID</th>
+                      <th>Category Name</th>
+                      <th>Category Description</th>
+                      <th>Action</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <tr th:if="${categories.empty}">
+                      <td colspan="2"> No Categories Available </td>
+                    </tr>
+                    <tr th:each="category : ${categories}">
+                      <td><span th:text="${category.categoryId}"> 1 </span></td>
+                      <td><span th:text="${category.categoryName}"> Category Name </span></td>
+                      <td><span th:text="${category.categoryDescription}"> Category Description </span></td>
+                      <td><a th:href="@{/category/delete/{id}(id=${category.categoryId})}"><span style="color: red;">
+                            <i class="fas fa-trash"></i></span></a> &nbsp; <a
+                          th:href="@{/category/update/{id}(id=${category.categoryId})}">
+                          <span style="color: green;"> <i class="fas fa-edit"></i> </span></a></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
             </div>
-        </div>
+          </div>
 
         </div>
       </div>

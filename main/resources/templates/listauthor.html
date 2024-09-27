@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head th:replace="fragments/header::header">
-   
+
 </head>
 
 <body>
@@ -10,46 +10,65 @@
     <div class="fluid-container">
         <div class="row">
             <div class="col-2">
-                <div th:replace="fragments/sidebar::left"> </div> 
+                <div th:replace="fragments/sidebar::left"> </div>
             </div>
             <div class="col-10">
                 <div id="content" class="container mt-4">
-                    <div>
-                        List Authors Page
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary"> List of Authors</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr th:if="${authors.empty}">
+                                            <td colspan="2"> No Authors Available </td>
+                                        </tr>
+                                        <tr th:each="author : ${authors}">
+                                            <td><span th:text="${author.id}"> Id </span></td>
+                                            <td><span th:text="${author.firstName}"> Fist Name </span></td>
+                                            <td><span th:text="${author.lastName}"> Last Name </span></td>
+                                            <td><a th:href="@{/author/delete/{id}(id=${author.id})}"><span
+                                                        style="color: red;"> <i class="fas fa-trash"></i></span></a>
+                                                &nbsp; <a th:href="@{/author/update/{id}(id=${author.id})}"><span
+                                                        style="color: green;">
+                                                        <i class="fas fa-edit"></i> </span></a></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-        
-                    <table class="table">
-                        <thead>
-							<tr th:if="${authors.empty}">
-							            <td colspan="2"> No Authors Available </td>
-							</tr>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-							<tr th:each="author : ${authors}">
-							           <td><span th:text="${author.id}"> Id </span></td>
-							           <td><span th:text="${author.firstName}"> Fist Name </span></td>
-									   <td><span th:text="${author.lastName}"> Last Name </span></td>
-									   <td><a th:href="@{/author/delete/{id}(id=${author.id})}"><span style="color: red;"> <i
-									       class="fas fa-trash"></i></span></a> &nbsp; <a
-									            th:href="@{/author/update/{id}(id=${author.id})}"><span style="color: green;">
-									              <i class="fas fa-edit"></i> </span></a></td>
-					       	</tr>
-                        </tbody>
-        
-                    </table>
+
+
+
+
+
                 </div>
             </div>
         </div>
     </div>
 
     <div>
-       
+
     </div>
 
     <div>

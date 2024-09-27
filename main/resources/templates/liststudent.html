@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head th:replace="fragments/header::header">
-   
+
 </head>
 
 <body>
@@ -10,53 +10,70 @@
     <div class="fluid-container">
         <div class="row">
             <div class="col-2">
-                <div th:replace="fragments/sidebar::left"> </div> 
+                <div th:replace="fragments/sidebar::left"> </div>
             </div>
             <div class="col-10">
                 <div id="content" class="container mt-4">
-                    <div>
-                        List Students Page
-                    </div>
-        
-                    <table class="table">
-                        <thead>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary"> List Of Students</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Student Id</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+											<th scope="col">Phone No</th>
+											<th scope="col">Email</th>
+                                            <th scope="col">Location</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th scope="col">Student Id</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+											<th scope="col">Phone No</th>
+											<th scope="col">Email</th>
+                                            <th scope="col">Location</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr th:if="${students.empty}">
+                                            <td colspan="2"> No Students Available </td>
+                                        </tr>
+                                        <tr th:each="student : ${students}">
+                                            <td><span th:text="${student.studentId}"> Student Id </span></td>
+                                            <td><span th:text="${student.firstName}"> First Name </span></td>
+                                            <td><span th:text="${student.lastName}"> Last Isbn </span></td>
+                                            <td><span th:text="${student.phoneNo}"> Phone NO </span></td>
+                                            <td><span th:text="${student.email}"> Email </span></td>
+                                            <td><span th:text="${student.location}"> Location </span></td>
+                                            <td><a th:href="@{/student/delete/{id}(id=${student.studentId})}"><span
+                                                        style="color: red;"> <i class="fas fa-trash"></i></span></a>
+                                                &nbsp; <a
+                                                    th:href="@{/student/update/{id}(id=${student.studentId})}"><span
+                                                        style="color: green;">
+                                                        <i class="fas fa-edit"></i> </span></a></td>
+                                        </tr>
 
-                            <tr th:if="${students.empty}">
-                                <td colspan="2"> No Students Available </td>
-                    		</tr>
-                            <tr>
-                                <th scope="col">Student Id</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Phone No</th>
-                                <th scope="col">Location</th>
-                                <th>Action</th>
-                            </tr>                           
-                        </thead>
-                        <tbody>
-							<tr th:each="student : ${students}">
-	                               <td><span th:text="${student.studentId}"> Id </span></td>
-	                               <td><span th:text="${student.firstName}"> Book Name </span></td>
-	                               <td><span th:text="${student.lastName}"> Book Isbn </span></td>
-	                               <td><span th:text="${student.phoneNo}"> Book Price </span></td>
-	                               <td><span th:text="${student.email}"> Book Price </span></td>
-	                               <td><span th:text="${student.location}"> Book Price </span></td>
-                                   <td><a th:href="@{/student/delete/{id}(id=${student.studentId})}"><span style="color: red;"> <i
-                                    class="fas fa-trash"></i></span></a> &nbsp; <a
-                            th:href="@{/student/update/{id}(id=${student.studentId})}"><span style="color: green;">
-                                <i class="fas fa-edit"></i> </span></a></td>
-	                       	</tr>
-                        </tbody>
-        
-                    </table>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <div>
-       
+
     </div>
 
     <div>

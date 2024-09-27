@@ -32,7 +32,7 @@ public class BookController {
 	}
 	@PostMapping("/add")
 	public String addBook(@ModelAttribute("book") Book book) {
-		System.out.println(book.getBookName() + " "+book.getIsbn()+ " "+ book.getPrice());
+//		System.out.println(book.getBookName() + " "+book.getIsbn()+ " "+ book.getPrice());
 		bookService.addBook(book);
 		return "redirect:/book/list";
 	}
@@ -42,7 +42,7 @@ public class BookController {
 		List<Book> books = new ArrayList<>();
 		books= bookService.allBooks();
 		model.addAttribute("books", books);
-		return "listbook.html";
+		return "listbook";
 	}
 	@GetMapping("/delete/{id}")
 	public String deleteBook(@PathVariable("id") int id,Model model) {

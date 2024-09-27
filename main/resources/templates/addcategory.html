@@ -17,13 +17,13 @@
                         <div class="col-12 col-md-6">
                             <form th:action="@{/category/add}" method="post" th:object="${category}">
             
-                                <div class="category-id">
+                                <div class="category-name">
                                     <br>
                                     <label for="exampleInputCategoryId">Category name</label>
                                     <br>
                                     <input type="text" class="form-control" th:field="*{categoryName}" id="exampleInputCategoryname" aria-describedby="Categoryname"
                                         placeholder="Enter Category Name">
-                                    <small id="CategoryId" class="form-text text-muted"></small>
+                                    <small id="Categoryname" class="form-text text-muted"></small>
                                 </div>
             
                                 <div class="category-description">
@@ -38,7 +38,7 @@
                                 <div class="mt-4">
             
                                     <button type="submit" class="btn btn-primary btn-lg">Add Category</button>
-                                    <button type="button" class="btn btn-primary btn-lg">Reset</button>
+                                    <button type="reset" class="btn btn-primary btn-lg">Reset</button>
                                 </div>
             
                             </form>

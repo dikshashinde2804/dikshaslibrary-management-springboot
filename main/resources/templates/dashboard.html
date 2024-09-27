@@ -25,7 +25,7 @@
                         <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
+                                    <div class="col ">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Total No. of Books</div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${booksCount}">$40,000</div>
@@ -43,7 +43,7 @@
 					                      <div class="card border-left-primary shadow h-100 py-2">
 					                          <div class="card-body">
 					                              <div class="row no-gutters align-items-center">
-					                                  <div class="col mr-2">
+					                                  <div class="col">
 					                                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 					                                          Total No. of Authors</div>
 					                                      <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${authorsCount}">$40,000</div>
@@ -61,7 +61,7 @@
 					                      <div class="card border-left-primary shadow h-100 py-2">
 					                          <div class="card-body">
 					                              <div class="row no-gutters align-items-center">
-					                                  <div class="col mr-2">
+					                                  <div class="col">
 					                                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 					                                          Total No. of Students</div>
 					                                      <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${studentsCount}">$40,000</div>
@@ -79,7 +79,7 @@
                         <div class="card border-left-warning shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
+                                    <div class="col">
                                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                             Pending Requests</div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
@@ -103,7 +103,8 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     </div>
-    <div th:replace="fragments/allscripts::scripts"></div>
+	<div th:replace="fragments/allscripts::scripts"></div>
+
 </body>
 
 </html>

@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import in.techdenovo.dikshaapps.library_management_springboot.model.Author;
-import in.techdenovo.dikshaapps.library_management_springboot.model.Book;
+
 import in.techdenovo.dikshaapps.library_management_springboot.service.AuthorService;
-import in.techdenovo.dikshaapps.library_management_springboot.service.BookService;
+
 
 
 @Controller
@@ -33,7 +33,7 @@ public class AuthorController {
 		
 	}
 	@PostMapping("/add")
-	public String addAuthor(@ModelAttribute("author") Author author) {
+	public String addAuthor(@ModelAttribute Author author) {
 			authorService.addAuthor(author);
 		return "redirect:/author/list";
 	}
@@ -46,18 +46,18 @@ public class AuthorController {
 		return "listauthor";
 	}
 	@GetMapping("/delete/{id}")
-	public String deleteAuthor(@PathVariable("id") int id,Model model) {
+	public String deleteAuthor(@PathVariable int id,Model model) {
 		authorService.deleteAuthor(id);
 		return "redirect:/author/list";
 	}
 	@GetMapping("/update/{id}")
-	public String updateAuthor(@PathVariable("id") int id,Model model) {
+	public String updateAuthor(@PathVariable int id,Model model) {
 		Author existingAuthor = authorService.findAuthor(id);
 		model.addAttribute("author", existingAuthor);
 		return "editauthor";
 	}
 	@PostMapping("/update")
-	public String updateAuthor(@ModelAttribute("author") Author author) {
+	public String updateAuthor(@ModelAttribute Author author) {
 		authorService.updateAuthor(author);
 		return "redirect:/author/list";
 	}

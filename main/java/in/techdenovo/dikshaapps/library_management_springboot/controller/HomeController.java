@@ -1,5 +1,4 @@
- package in.techdenovo.dikshaapps.library_management_springboot.controller;
-
+package in.techdenovo.dikshaapps.library_management_springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +28,5 @@ public class HomeController {
 		model.addAttribute("authorsCount", authorService.countAuthors());
 		model.addAttribute("studentsCount", studentService.countStudents());
 		return "dashboard";
-	}
-
+	}	
 }
-  
